@@ -3,7 +3,6 @@ DBASE="vmdb_production"
 
 echo "Stop evmserverd"
 systemctl stop evmserverd
-systemctl stop httpd
 
 echo "Drop database"
 dropdb --no-password -U root $DBASE
@@ -21,7 +20,7 @@ echo "Update v2_key"
 mv -f /tmp/v2_key /var/www/miq/vmdb/certs/
 
 echo "Start evmserverd"
-systemctl start evmserverd
+systemctl restart evmserverd
 
 echo "Clean temp directory"
 rm -rf /tmp/*
