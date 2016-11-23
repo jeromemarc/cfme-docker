@@ -23,5 +23,5 @@ pg_restore --no-password -U root -d $DBASE "/tmp/"$DBASE"_latest.dump"
 echo "Start evmserverd"
 systemctl start evmserverd
 
-# echo "Clean temp directory"
-# rm -rf /tmp/*
+echo "Clean temp directory"
+rm -rf /tmp/*
