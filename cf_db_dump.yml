@@ -1,0 +1,41 @@
+---
+- name: Pull down DB to localhost
+  hosts: localhost
+
+  tasks:
+        - name: Pull down DB dump from Url
+          get_url:
+            url: http://10.9.62.89/dumps/vmdb_production_latest.dump
+
+
+- name: Setup Cloudforms DB
+  hosts: CFAppliance
+  become: true
+  remote_user: root
+
+  ### Note: Make sure your local machine can resolve the DB_URL!
+  tasks:
+    - name: Copy the DB dump
+      copy:
+        src: vmdb_production_latest.dump
+        dest: /tmp/vmdb_production_latest.dump
+
+    - name: Stop the evmserverd
+      service:
+        name: evmserverd
+        state: stopped
+
+    - name: Drop the current database contents
+      command: dropdb vmdb_production
+
+    - name: Create a new database
+      command: creatdb vmdb_production
+
+ ### pg_restore needs to be a local action, possibly available from galaxy role duply/duplicity
+    - name: Restore database from new DB dump
+      command: pg_restore -d vmdb_production /tmp/vmdb_production_latest.dump
+
+    - name: Restart the evmserverd service
+      service:
+        name: evmserverd
+        state: started
