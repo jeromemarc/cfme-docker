@@ -18,7 +18,7 @@ echo "Create database"
 createdb --no-password -U root $DBASE
 
 echo "Restore database"
-pg_restore --no-password -U root -d $DBASE $DBASE_latest.dump
+pg_restore --no-password -U root -d $DBASE "/tmp/"$DBASE"_latest.dump"
 
 echo "Start evmserverd"
 systemctl start evmserverd
