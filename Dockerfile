@@ -6,4 +6,6 @@ FROM registry.access.redhat.com/cloudforms/cfme4:latest
 
 COPY REGION v2_key vmdb_production_latest.dump restore_db.sh /tmp/
 
+USER root
+
 RUN /tmp/restore_db.sh
