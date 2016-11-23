@@ -25,3 +25,6 @@ systemctl start evmserverd
 
 echo "Clean temp directory"
 rm -rf /tmp/*
+
+echo "Set admin credentials"
+/var/www/miq/vmdb/script/rails r "User.find_by_userid('admin').update_attributes(:password => 'newpwd')"
