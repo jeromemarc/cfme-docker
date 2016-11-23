@@ -1,12 +1,12 @@
 #!/bin/bash
 echo "Downloading CloudForms database backups locally for the environment in the MBU lab"
-curl http://10.9.62.89/dumps/vmdb_production_latest.dump
+wget http://10.9.62.89/dumps/vmdb_production_latest.dump
 
 echo "Downloading MBU region ID for database configuration"
-curl http://10.9.62.89/dumps/REGION
+wget http://10.9.62.89/dumps/REGION
 
 echo "Downloading v2_key for database password"
-curl http://10.9.62.89/dumps/v2_key
+wget http://10.9.62.89/dumps/v2_key
 
 # [TODO] Create image from Dockerfile.
 # docker build -t cfme-docker/cfme4:1.1 . // [TODO] Add release increment
