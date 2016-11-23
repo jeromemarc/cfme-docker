@@ -4,6 +4,6 @@
 
 FROM registry.access.redhat.com/cloudforms/cfme4:latest
 
-COPY . /tmp/
+COPY REGION v2_key vmdb_production_latest.dump restore_db.sh /tmp/
 
-# Run Ansible script mentioned in 'bin/init.sh'
+RUN /tmp/restore_db.sh

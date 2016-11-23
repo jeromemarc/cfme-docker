@@ -8,8 +8,9 @@ wget http://10.9.62.89/dumps/REGION
 echo "Downloading v2_key for database password"
 wget http://10.9.62.89/dumps/v2_key
 
-# [TODO] Create image from Dockerfile.
-# docker build -t cfme-docker/cfme4:1.1 . // [TODO] Add release increment
+echo "Creating image from Dockerfile"
+docker build -t cfme-docker/cfme4:1.1 .
+# [TODO] Add release increment
 
 # [TODO] Executes ansible-container to:
 # 1) Stop the evmserverd
