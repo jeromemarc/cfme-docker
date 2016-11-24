@@ -10,15 +10,6 @@ wget -N http://10.9.62.89/dumps/v2_key
 
 echo "Creating image from Dockerfile"
 docker build -t cfme-docker/cfme4:1.1 .
-# [TODO] Add release increment
-
-# [TODO] Executes ansible-container to:
-# 1) Stop the evmserverd
-# 2) Drop 'vmdb_production' database
-# 3) Overwrite the REGION file
-# 4) Overwrite the v2_key file
-# 5) Create blank 'vmdb_production' database
-# 6) Restore 'vmdb_production' from database dump
-# 7) Restart the evmserverd
+# [TODO] Add release increment.
 
 # [TODO] Push image to docker hub.
