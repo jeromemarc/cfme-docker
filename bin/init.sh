@@ -10,6 +10,15 @@ wget -N http://10.9.62.89/dumps/v2_key
 
 echo "Creating image from Dockerfile"
 docker build -t cfme-docker/cfme4:1.1 .
-# [TODO] Add release increment.
 
-# [TODO] Push image to docker hub.
+echo "Starting docker container"
+docker run --privileged -di -p 80:80 -p 443:443 --name cfme4-1 cfme-docker/cfme4:1.1
+
+echo "Restoring demo database"
+docker exec cfme4-1 /tmp/restore_db.sh
+
+echo "Committing container’s file changes or settings into a new image"
+docker commit $(docker ps -aq -f name=cfme4-1) ecwpz91/cfme4-demo:latest
+
+echo "Push docker iamge to Docker Hub"
+docker push ecwpz91/cfme4-demo
