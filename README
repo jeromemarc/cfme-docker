@@ -4,19 +4,32 @@ Based on registry.access.redhat.com/cloudforms/cfme4:latest, adds database dump
 from the environment in the MBU lab.
 
 # Prerequisites
-[TODO]
+- git
+- GitHub account
+- Docker Engine
+- RedHat VPN access
 
 # Usage
-[TODO]
+
+Build docker container.
+$ sh bin/init.sh
+
+SSH into the docker container.
+$ docker exec -it cfme4 /bin/bash
+
+Stop the docker container.
+$ docker stop cfme4
+
+Remove the docker container.
+$ docker rm cfme4
 
 # Credentials
-[TODO]
-
-# Networking
-[TODO]
+Open a browser to "https://localhost/" and login with 'admin' & 'smartvm' (default password).
 
 # Resources
+Install Docker Engine: http://dockr.ly/2g6Gym2
 CloudForms as a Container: http://red.ht/2ghjfl0
+CloudForms Workshops: http://bit.ly/2gqNZRa
 
 # Authors
 Kyle Benson

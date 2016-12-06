@@ -4,4 +4,6 @@
 
 FROM registry.access.redhat.com/cloudforms/cfme4:latest
 
+COPY appliance-initialize.sh /bin/
+
 COPY REGION v2_key vmdb_production_latest.dump restore_db.sh /tmp/
