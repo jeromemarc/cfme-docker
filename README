@@ -13,14 +13,17 @@ from the environment in the MBU lab.
 Build docker container.
 $ sh bin/init.sh
 
+Run docker container.
+$ docker run --privileged -di -p 80:80 -p 443:443 --name cfme4-demo ecwpz91/cfme4-demo
+
 SSH into the docker container.
-$ docker exec -it cfme4 /bin/bash
+$ docker exec -it cfme4-demo /bin/bash
 
 Stop the docker container.
-$ docker stop cfme4
+$ docker stop cfme4-demo
 
 Remove the docker container.
-$ docker rm cfme4
+$ docker rm cfme4-demo 
 
 # Credentials
 Open a browser to "https://localhost/" and login with 'admin' & 'smartvm' (default password).
