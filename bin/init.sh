@@ -13,5 +13,5 @@ wget -N http://10.9.62.89/dumps/v2_key
 echo "Creating docker image."
 docker build -t "$DOCKER_ID"/cfme4-demo:latest .
 
-# echo "Pushing image to Docker Hub"
-# docker push "$DOCKER_ID"/cfme4-demo
+echo "Pushing image to Docker Hub"
+docker push "$DOCKER_ID"/cfme4-demo
