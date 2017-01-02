@@ -23,7 +23,7 @@ Stop the docker container.
 $ docker stop cfme4-demo
 
 Remove the docker container.
-$ docker rm cfme4-demo 
+$ docker rm cfme4-demo
 
 # Credentials
 Open a browser to "https://localhost/" and login with 'admin' & 'smartvm' (default password).
@@ -34,6 +34,6 @@ CloudForms as a Container: http://red.ht/2ghjfl0
 CloudForms Workshops: http://bit.ly/2gqNZRa
 
 # Authors
-Kyle Benson
 Michael Surbey
 Jerome Marc
+Nick Carboni
