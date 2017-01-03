@@ -17,4 +17,4 @@ echo "Remove dump file"
 rm -rf "/tmp/"$DBASE"_latest.dump"
 
 # echo "Set admin passwd"
-# /var/www/miq/vmdb/script/rails r "User.find_by_userid('admin').update_attributes(:password =>'smartvm')"
+# /var/www/miq/vmdb/bin/rails r "User.find_by_userid('admin').update_attributes(:password =>'smartvm')"
